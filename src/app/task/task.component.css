@@ -1,0 +1,107 @@
+.navbar
+{
+    background-color: 	#687FDC !important;
+	height: 70px;
+	margin-bottom: 0px;
+}
+.bg-primary[_ngcontent-c0]
+{
+	background-color: #687FDC !important;
+}
+h1
+{
+	padding-top:10px;
+	color: white;
+	text-align: left;
+	font-size: 24px;
+}
+.text-right{
+    float: right;
+    font-size: 22px;
+}
+span
+{
+	font-size: 18px;
+}
+.row{
+	margin-left: 0px;
+	margin-right: 0px;
+}
+ul > li:nth-of-type(even) {
+    background-color: #74706F ;
+}
+.sideNav
+{
+	background-color: #54504F;
+	color: white;
+	margin-right: 0px !important;
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	height: 585px;
+}
+.taskTable{
+	margin-right: 0px !important;
+}
+.text-white
+{
+	font-size: 22px;
+	padding-top:10px;
+	padding-left:10px;
+	text-transform: uppercase;
+}
+#allTask{
+    color: #000;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+#currentTime{
+	padding-top:5px;
+	color: #000;
+	font-size:1.0rem;
+}
+.btnCls{
+	background-color: #687FDC;
+}
+#cutTask{
+    color: #000;
+    text-align: right;
+    padding-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+li
+{
+	list-style-type: none;
+	font-size: 20px;
+	padding: 15px;
+	text-align: left;
+}
+li:hover {
+	background-color: #687FDC !important;
+	color: #ffffff !important;
+}
+a{
+	padding-left:10px;
+	cursor: pointer;
+	color: #ffffff !important;
+}
+.active{
+    background-color: #687FDC;
+    /* border-color: #212529; */
+}
+.table
+{
+	color: black !important;
+	table-layout: fixed;
+}
+.textBox{
+	width:130px;
+	height:20px;
+}
+.labelCls{
+	padding-left:0px;
+	padding-right: 0px; 
+}
+.col-md-8{
+	height:15px;
+}

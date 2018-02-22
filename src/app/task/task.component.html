@@ -1,0 +1,109 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <div class="col-md-7"><h1>TASK TRACKER</h1></div>
+    <div class="col-md-5" style="text-align: right">
+      <br/><span class="text-right"><i class="fas fa-user-circle"></i>&nbsp; Welcome {{title}}! &nbsp;</span>
+    </div> 
+</nav>  
+    <div class="row">
+    <div class="col-md-3 sideNav">
+        <h3 class="text-white">List of Roles</h3>
+        <hr style="background-color:white">
+        <ul class="list-group" id="role">
+            <li [ngClass]="{'active': selectedItem == item}" (click)="listClick($event, item)" *ngFor="let item of this.roleNames">
+              <a><i class="fas fa-user-circle"></i>&nbsp;{{ item.RoleName }}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-9 taskTable">
+            <br/>
+        <div class="row">
+            <div class=" allTask col-md-4">
+                <h4 id="allTask">Tasks List</h4>
+            </div>
+            <div class="currentTime col-md-4">
+                <h4 id="currentTime">{{currentTime | date:'MMM-d-y h:mm:ss a'}}</h4>          
+            </div>
+            <div class="col-md-4">
+                <h4 id="cutTask"><button type="button" [disabled]="custtaskdisabled" class="btn btnCls" [ngbPopover]="popCustContent" (click)="opencustomtask()" popoverTitle="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add Custom Task" placement="bottom"><i class="far fa-plus-square"></i></button>&nbsp; Add Custom Task</h4>
+                <ng-template #popCustContent>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-4" class="labelCls">
+                                <label>Role Name*</label>
+                            </div>
+                            <div class="col-md-8 custCls">
+                                <select [(ngModel)]="taskSubmit.roleDetails" class="textBox" name="roleDetails">
+                                    <option *ngFor="let r of this.roleNames"[ngValue]="r">
+                                        {{r.RoleName}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4"class="labelCls">
+                                <label>Task Name*</label>
+                            </div>
+                            <div class="col-md-8 custCls">
+                                <input type="text" place holder="Enter task Name" class="textBox" [(ngModel)]="taskSubmit.TaskName" name="TaskName"><br><br>               
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4" class="labelCls">
+                                <label>Description*</label>
+                            </div>
+                            <div class="col-md-8 custCls">
+                                <input type="textarea" place holder="Enter task description" class="textBox" [(ngModel)]="taskSubmit.TaskDescription" name="TaskDescription"><br><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div style="text-align:right" class="col-md-6">
+                                <button class="btn btn-primary btn-sm" (click) = "addCustTask(taskSubmit)">Submit</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-danger btn-sm"(click) = "close()">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </ng-template>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-11">
+                    <table class="table" id="tasktable">
+                            <thead class="thead-light">
+                                <tr>
+                                  <th width="3%">#</th>
+                                  <th>Task Name</th>
+                                  <th>Description</th>
+                                  <th>Start Time</th>
+                                  <th>Action(Start/Stop)</th>
+                                </tr>
+                              </thead>
+                                <tr *ngFor="let it of this.taskdetails; index as i">
+                                  <th scope="row">{{i+1}}</th>
+                                  <td>{{it.TaskName}}</td>
+                                  <td>{{it.Description}}</td>
+                                  <td>{{it.startTime | date:'h:mm:ss a'}}</td>
+                                  <td style="padding-left:50px">
+                                    <button type="button" id="taskBtn" class="btn btnCls" (click)="start(i+1,it, it.status,i+1)" [disabled]="taskbuttondisabled">
+                                      <span *ngIf="!it.status"><i class="fas fa-play"></i></span>
+                                      <span *ngIf="it.status"  [ngbPopover]="popContent" popoverTitle="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Add Task" placement="bottom" (click)="taskbutton()" ><i class="fas fa-stop"></i></span>
+                                      <ng-template #popContent style="width:200px;">
+                                          <form>
+                                              <label>Duration (in minutes):</label>
+                                                <input type="number" style="width:50px;" [(ngModel)]="it.enteredDuration" name="enteredDuration" min=1><br><br>
+                                                <div style="text-align:center">
+                                                    <button class="btnCls" (click) = "start(-1,it,it.status,i+1)">Submit</button>
+                                                </div>
+                                          </form>
+                                      </ng-template>
+                                    </button>
+                                   </td> 
+                                </tr>                           
+                          </table>  
+            </div>
+        </div>       
+            
+    </div>
+</div>
+    

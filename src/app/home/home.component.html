@@ -1,0 +1,106 @@
+<div class="container">
+    <div class="jumbotron">
+        <p class="lead" style="text-align:right">
+            <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" role="button">Add Custom Task</a>
+        </p>
+        <!-- <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4"> -->
+        <!-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> -->
+        <div class="row">
+          <div class="col-md-4" id="roleul">
+              <ul class="list-group" id="role">
+                  <h4 class="bg-primary text-white">List of Roles</h4>
+                  <li *ngFor="let n of list" (click)="select(n)" class="list-group-item" [ngClass]="{active: isActive(n)}">
+                      <a>{{n}}</a>
+                  </li>
+                  <!-- <li class="list-group-item active">Cras justo odio</li>
+                  <li class="list-group-item">Dapibus ac facilisis in</li>
+                  <li class="list-group-item">Morbi leo risus</li>
+                  <li class="list-group-item">Porta ac consectetur ac</li>
+                  <li class="list-group-item">Vestibulum at eros</li> -->
+                </ul>
+          </div>
+          <div class="col-md-8" *ngIf="condition">
+              <h4 style="background-color:#E9ECEF"></h4>
+            <p class="lead" *ngIf="taskList">No tasks to display. Add custom task</p>
+              <table class="table table-striped" *ngIf="!taskList">
+                  <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Task Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Task1</td>
+                      <td>Task Description1</td>
+                      <td> <a routerLink="/task"><button class="btn btn-default btn-primary"(click) = "start()">Start Task</button></a></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Task2</td>
+                      <td>Task Description2</td>
+                      <td><button class="btn btn-default btn-primary" target = "_blank" (click) = "start()">Start Task</button></td>
+                    </tr>
+                    <tr class="tr">
+                      <th scope="row">3</th>
+                      <td>Task3</td>
+                      <td>Task Description3</td>
+                      <td><button class="btn btn-default btn-primary" target = "_blank" (click) = "start()">Start Task</button></td>
+                    </tr>
+                </table>
+              <!-- <ul class="list-group">
+                  <h4 class="bg-primary text-white" id="taskHead">List of Task</h4>
+                  <li *ngFor="let n of list" (click)="select(n)" class="list-group-item">
+                      <div class="row" id="taskborder">
+                          <div class="col-md-3">
+                              {{n}}
+                          </div>
+                          <div class="col-md-6">
+                              {{n}}
+                          </div>
+                          <div class="col-md-3">
+                              {{n}}
+                          </div>
+                      </div>
+                  </li>
+                   <li class="list-group-item active">Cras justo odio</li>
+                  <li class="list-group-item">Dapibus ac facilisis in</li>
+                  <li class="list-group-item">Morbi leo risus</li>
+                  <li class="list-group-item">Porta ac consectetur ac</li>
+                  <li class="list-group-item">Vestibulum at eros</li> 
+                </ul> -->
+          </div>      
+        </div> 
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Add Custom Task</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="recipient-name" class="form-control-label">Task Name:</label>
+                      <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group">
+                      <label for="message-text" class="form-control-label">Description:</label>
+                      <textarea class="form-control" id="message-text"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary">Add Custom Task</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>   
+      </div>
+</div>

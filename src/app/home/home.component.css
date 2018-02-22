@@ -1,0 +1,50 @@
+.container{
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top:30px;
+}
+h1{
+    text-align: center;
+    text-transform: uppercase;
+}
+#h4title{
+font-size: 30px;
+background-color: transparent;
+}
+#h4position{
+    font-size: 30px;
+    text-align: right;
+    background-color: transparent;
+    margin-top: -53px;
+}
+hr{
+    background-color: #ffffff;
+    height: 5px;
+}
+.jumbotron{
+    color: black;
+    padding-top: 15px;
+}
+/* #roleul{
+    border: 2px solid #ffffff;
+} */
+#role{
+    text-align: center;
+}
+h4{
+height:50px;
+padding:10px;
+}
+.active{
+    background-color: #212529;
+    border-color: #212529;
+}
+a{
+    cursor: pointer;
+}
+#taskHead{
+    text-align: center;
+}
+#taskborder .col-md-3{
+border-color: red;
+}

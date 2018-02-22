@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: myFirstFont;
+    src: 'assets/fonts/ultra-webfont.woff' ;
+}
+
+body {
+    /* font-family: myFirstFont; */
+    font-family: Segoue Ui;
+    /* background-color: #2B3E50; */
+    color:#ffffff;
+}
